@@ -1,59 +1,45 @@
+# 프로젝트 설명서
 
-# seolo1145_s_application
-### Table of contents
-- [System requirements](#system-requirements)
-- [Figma design guidelines for better UI accuracy](#figma-design-guideline-for-better-accuracy)
-- [Check the UI of the entire app](#app-navigations)
-- [Application structure](#project-structure)
-- [How to format your code?](#how-you-can-do-code-formatting)
-- [How you can improve code readability?](#how-you-can-improve-the-readability-of-code)
-- [Libraries and tools used](#libraries-and-tools-used)
-- [Support](#support)
+본 프로젝트에서는 다양한 화면의 소스 코드를 `lib/presentation` 또는 `lib/core/presentation` 디렉터리에서 확인할 수 있습니다. 해당 코드는 주로 디자인을 위한 코드입니다.
 
-### System requirements
+## 디렉터리 구조
 
-Dart SDK Version 3.3.2 or greater.
-Flutter SDK Version 3.19.4 or greater.
+- **lib/presentation**: 모든 화면의 소스 코드가 위치합니다.
+- **lib/core/presentation**: 디자인과 관련된 핵심 코드가 포함됩니다.
+- **assets**: 프로젝트에서 사용하는 모든 첨부 이미지가 저장됩니다.
 
-### Figma design guidelines for better UI accuracy
+## 화면 코드
 
-Read our guidelines to increase the accuracy of design-to-code conversion by optimizing Figma designs.
-https://docs.dhiwise.com/docs/Designguidelines/intro
+각 화면의 소스 코드는 다음 경로에서 확인할 수 있습니다:
 
-### Check the UI of the entire app
+lib/presentation/
+lib/core/presentation/
 
-Check the UI of all the app screens from a single place by setting up the 'initialRoute'  to AppNavigation in the AppRoutes.dart file.
+디자인 및 레이아웃을 구성하는 데 필요한 다양한 코드가 포함되어 있습니다.
 
-### Application structure
-After successful build, your application structure should look like this:
-                    
+### 화면 예시 코드
+
+```dart
+import 'package:flutter/material.dart';
+import '../../core/app_export.dart';
+
+class SampleScreen extends StatelessWidget {
+  const SampleScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Sample Screen'),
+      ),
+      body: Center(
+        child: Text('This is a sample screen.'),
+      ),
+    );
+  }
+}
 ```
-.
-├── android                         - It contains files required to run the application on an Android platform.
-├── assets                          - It contains all images and fonts of your application.
-├── ios                             - It contains files required to run the application on an iOS platform.
-├── lib                             - Most important folder in the application, used to write most of the Dart code..
-    ├── main.dart                   - Starting point of the application
-    ├── core
-    │   ├── app_export.dart         - It contains commonly used file imports
-    │   ├── constants               - It contains static constant class file
-    │   └── utils                   - It contains common files and utilities of the application
-    ├── presentation                - It contains widgets of the screens
-    ├── routes                      - It contains all the routes of the application
-    └── theme                       - It contains app theme and decoration classes
-    └── widgets                     - It contains all custom widget classes
-```
-### How to format your code?
 
-- if your code is not formatted then run following command in your terminal to format code
-  ```
-  dart format .
-  ```
+## 이미지
 
-### How you can improve code readability?
-
-Resolve the errors and warnings that are shown in the application.
-
-### Support
-
-If you have any problems or questions, go to our Discord channel, where we will help you as quickly as possible: https://discord.com/invite/rFMnCG5MZ7
+프로젝트에서 사용되는 모든 이미지는 assets 디렉터리에 저장되어 있습니다. 이미지 파일에 접근하고 싶으시면 해당 디렉터리를 참조하세요.
